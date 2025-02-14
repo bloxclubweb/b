@@ -1,7 +1,5 @@
 import discord
 import os
-import threading
-from flask import Flask
 from discord.ext import commands
 
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -11,16 +9,6 @@ intents.message_content = True
 client = commands.Bot(command_prefix="!", intents=intents)
 
 CANAL_ID = 1339793296821850233
-
-@app.route('/')
-def home():
-    return "O bot está online!"
-
-def run():
-    app.run(host="0.0.0.0", port=8080)
-
-t = threading.Thread(target=run)
-t.start()
 
 @client.event
 async def on_ready():
