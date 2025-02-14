@@ -46,7 +46,3 @@ if TOKEN:
     client.run(TOKEN)
 else:
     print("Erro: DISCORD_TOKEN não definido!")
-
-
-Atualizei seu código para incluir um servidor Flask que o UptimeRobot pode pingar, garantindo que o Render não desligue seu bot. Agora basta atualizar seu repositório e configurar o UptimeRobot! Se precisar de mais alguma coisa, só avisar. 🚀
-
