@@ -1,19 +1,13 @@
-
 import discord
 import os
 from discord.ext import commands
-from dotenv import load_dotenv
 
-# Carrega variáveis de ambiente do arquivo .env
-load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
 
-# Configuração do bot
 intents = discord.Intents.default()
 intents.message_content = True
 client = commands.Bot(command_prefix="!", intents=intents)
 
-# ID do canal onde o bot deve criar tópicos
 CANAL_ID = 1339793296821850233
 
 @client.event
@@ -36,5 +30,7 @@ async def on_message(message):
 
     await client.process_commands(message)
 
-# Inicia o bot
-client.run(TOKEN)
+if TOKEN:
+    client.run(TOKEN)
+else:
+    print("Erro: DISCORD_TOKEN não definido!")
